@@ -6,7 +6,7 @@ import FormControl from "@material-ui/core/FormControl";
 import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
 import Select from "@material-ui/core/Select";
-import { isEmpty, getStates, getKarnatakaDistricts } from "../helpers";
+import { isEmpty, getStates, getDistrict } from "../helpers";
 
 export default function AddressForm(props) {
   const { data } = props;
@@ -70,7 +70,7 @@ export default function AddressForm(props) {
                 props.handleInputChange("district", event.target.value)
               }
             >
-              {getKarnatakaDistricts().map((s, i) => {
+              {getDistrict(data.state.value).map((s, i) => {
                 return (
                   <MenuItem value={s} key={s + i}>
                     {s}

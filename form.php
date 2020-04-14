@@ -1,7 +1,5 @@
 <?php
 
-require_once(dirname(__FILE__) . "/conf.php");
-
 header('Content-type: application/json; charset=UTF-8');
 
 if ($_SERVER['SERVER_ADDR'] != $_SERVER['REMOTE_ADDR']) {
@@ -12,6 +10,8 @@ if ($_SERVER['SERVER_ADDR'] != $_SERVER['REMOTE_ADDR']) {
     ]);
     exit; //just for good measure
 }
+
+require_once(dirname(__FILE__) . "/conf.php");
 
 $type = $_POST['type'];
 $state = $_POST['state'];

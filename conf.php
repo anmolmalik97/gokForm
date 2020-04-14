@@ -1,7 +1,7 @@
 <?php
 
 define("DB_HOST", "localhost");
-define("DB_POST", "3306");
+define("DB_PORT", "3306");
 define("DB_NAME", "gokform");
 define("DB_USERNAME", "user");
 define("DB_PASSWORD", "password");

@@ -45,6 +45,41 @@ export const getStates = () => {
   ];
 };
 
+export const getKarnatakaDistricts = () => {
+  return [
+    "Bagalkote",
+    "Bangalore Rural",
+    "Bangalore Urban",
+    "Belagavi",
+    "Ballari",
+    "Bidar",
+    "Chamarajanagara",
+    "Chikkaballapura",
+    "Chikkmagaluru",
+    "Chitradurga",
+    "Dakshina Kannada",
+    "Davanagere",
+    "Dharawada",
+    "Gadaga",
+    "Kalaburagi / Gulbarga ",
+    "Hassan",
+    "Haveri",
+    "Kodagu",
+    "Kolara",
+    "Koppala",
+    "Mandya",
+    "Mysuru",
+    "Raichur",
+    "Ramanagara",
+    "Shivamogga",
+    "Tumakuru",
+    "Udupi",
+    "Uttara Kannada",
+    "Vijayapura / Bijapur ",
+    "Yadagiri",
+  ];
+};
+
 export const getDistrict = (district) => {
   const DistrictMap = {
     "Andaman Nicobar": ["Nicobar", "North Middle Andaman", "South Andaman"],

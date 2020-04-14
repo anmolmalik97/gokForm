@@ -42,7 +42,8 @@ export default function AddressForm(props) {
             <Select
               labelId="state"
               id="state"
-              value={data.state.value}
+              value="Karnataka"
+              disabled
               onChange={(event) =>
                 props.handleInputChange("state", event.target.value)
               }
@@ -69,7 +70,7 @@ export default function AddressForm(props) {
                 props.handleInputChange("district", event.target.value)
               }
             >
-              {getDistrict(data.state.value).map((s, i) => {
+              {getKarnatakaDistricts().map((s, i) => {
                 return (
                   <MenuItem value={s} key={s + i}>
                     {s}

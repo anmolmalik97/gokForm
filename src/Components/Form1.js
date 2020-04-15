@@ -11,6 +11,7 @@ import { isEmpty, getStates, getDistrict } from "../helpers";
 export default function AddressForm(props) {
   const { data } = props;
   console.log(props);
+  data.state.value = "Karnataka";
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
@@ -42,7 +43,7 @@ export default function AddressForm(props) {
             <Select
               labelId="state"
               id="state"
-              value="Karnataka"
+              value={data.state.value}
               disabled
               onChange={(event) =>
                 props.handleInputChange("state", event.target.value)

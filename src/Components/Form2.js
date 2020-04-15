@@ -52,7 +52,7 @@ export default function AddressForm(props) {
         </Grid>
         <Grid item xs={12} sm={6}>
           <FormControl style={{ minWidth: "100%" }}>
-            <InputLabel id="gender">gender</InputLabel>
+            <InputLabel id="gender">Gender</InputLabel>
             <Select
               labelId="gender"
               id="gender"

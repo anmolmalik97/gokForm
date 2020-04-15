@@ -293,25 +293,53 @@ class FormContainer extends Component {
       });
       return;
     }
+    const typeMap = [
+      "RELIEF CAMPS/SHELTER (Dist wise)",
+      "EMPLOYERS WHOSE LABOUR IS IN-SITU",
+      "LOCALITIES WHERE MIGRANT WORKERS ARE CLUSTERED",
+    ];
     axios
-      .get(
-        "https://script.google.com/macros/s/AKfycbyPi6dBLxshnYWff4DLyXMtH5GHF64kwVYljokjThKAffADRgDM/exec",
+      .post(
+        "form.php",
         {
-          hello: "hey",
-          hello1: "how",
+          type: typeMap[this.state.type.value],
+          state: this.state.state.value,
+          district: this.state.district.value,
+          camp_name: this.state.campName.value,
+          run_by: this.state.runBy.value,
+          employer_name: this.state.employerName.value,
+          sector: this.state.sector.value,
+          other_sector: this.state.otherSector.value,
+          facilities: this.state.facilities.value,
+          locality: this.state.locality.value,
+          address: this.state.address.value,
+          name: this.state.name.value,
+          age: this.state.age.value,
+          gender: this.state.gender.value,
+          occupation: this.state.occupation.value,
+          other_occupation: this.state.otherOccupation.value,
+          mobile: this.state.mobile.value,
+          last_address: this.state.lastAddress.value,
+          native_distric: this.state.nativeDistrict.value,
+          native_state: this.state.nativeState.value,
+          have_bankac: this.state.haveBank.value,
+          have_jandhan: this.state.haveJandhan.value,
+          account_no: this.state.accNo.value,
+          ifsc: this.state.ifsc.value,
+          ujjwala: this.state.ujjwala.value,
+          aadhaar: this.state.aadhaar.value
         }
       )
       .then((resp) => {
-        console.log(resp.data);
+        this.setState((prevState) => {
+          return {
+            activeStep: prevState.activeStep + 1,
+          };
+        });
       })
       .catch((err) => {
         console.log(err);
       });
-    this.setState((prevState) => {
-      return {
-        activeStep: prevState.activeStep + 1,
-      };
-    });
   };
 
   handleNext = () => {
@@ -478,11 +506,6 @@ class FormContainer extends Component {
 
   render() {
     const { classes, ui } = this.props;
-    const typeMap = [
-      "RELIEF CAMPS/SHELTER (Dist wise)",
-      "EMPLOYERS WHOSE LABOUR IS IN-SITU",
-      "LOCALITIES WHERE MIGRANT WORKERS ARE CLUSTERED",
-    ];
     const {
       activeStep,
       state,
@@ -512,7 +535,7 @@ class FormContainer extends Component {
       otherSector,
       otherOccupation,
     } = this.state;
-    const Form1Data = {
+    const form1Data = {
       state,
       district,
       type,
@@ -542,7 +565,7 @@ class FormContainer extends Component {
       aadhaar,
       otherOccupation,
     };
-    const data = [Form1Data, form2Data];
+    const data = [form1Data, form2Data];
     return (
       <React.Fragment>
         <CssBaseline />
@@ -602,12 +625,10 @@ class FormContainer extends Component {
               {activeStep === steps.length ? (
                 <React.Fragment>
                   <Typography variant="h5" gutterBottom>
-                    Thank you for your order.
+                    Thank you for filling the form.
                   </Typography>
                   <Typography variant="subtitle1">
-                    Your order number is #2001539. We have emailed your order
-                    confirmation, and will send you an update when your order
-                    has shipped.
+                    We will update you soon.
                   </Typography>
                 </React.Fragment>
               ) : (
